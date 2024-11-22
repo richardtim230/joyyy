@@ -9,105 +9,133 @@
 <body>
 <!-- partial:index.partial.html -->
 <!DOCTYPE html>
+<!-- Name Input Modal -->
+<div id="name-modal" class="modal">
+    <div class="modal-content">
+        <h3>Welcome to Class Assistant</h3>
+        <p>Please enter your full name to personalize your experience:</p>
+        <input type="text" id="student-name" placeholder="Enter your full name">
+        <button id="save-name-btn">Save</button>
+    </div>
+</div>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Welcome Message Modal -->
+<div id="welcome-modal" class="modal">
+    <div class="modal-content">
+        <h3 id="welcome-title">Welcome!</h3>
+        <p id="welcome-message"></p>
+        <button id="close-welcome-btn">Close</button>
+    </div>
+</div>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OAU Students Calendar</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Class Assistant</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <!-- Welcome Pop-Up -->
-    <div id="welcome-popup" class="popup">
-        <div class="popup-content">
-            <h2>Welcome to OAU Students Calendar</h2>
-            <p id="motivational-quote"></p>
-            <button id="close-popup" onclick="closeWelcomePopup()">Close</button>
-        </div>
-    </div>
-
-    <!-- Header Section -->
     <header>
-        <h1>OAU Students Calendar</h1>
-        <p>Effortlessly manage your lecture timetable and notes</p>
+        <h1>Class Assistant</h1>
     </header>
 
     <main>
-        <!-- Timetable Section -->
-        <section id="timetable-section">
-            <h2>Your Lecture Timetable</h2>
-            <div class="table-wrapper">
-                <table id="timetable">
-                    <thead> <tr>
-                            <th>Course Code</th>
-                            <th>Title</th>
-                            <th>Day</th>
-                            <th>Time</th>
-                            <th>Venue</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Timetable rows will be dynamically loaded -->
-                    </tbody>
-                </table>
+        <!-- Student Records Section -->
+        <section id="students-section">
+            <h2>Student Records</h2>
+            <div id="student-controls">
+                <button id="add-student-btn">Add Student</button>
+                <button id="reset-filters-btn">Reset Filters</button>
+                <button id="export-student-pdf">Export PDF</button>
             </div>
-            <div class="timetable-buttons">
-                <button id="add-row">Add Row</button>
-                <button id="save-button">Save Timetable</button>
-            </div>
+            <table id="student-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Payment Type</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+      <!-- Splash Screen -->
+<div id="splash-screen">
+    <div class="splash-content">
+        <h1>Welcome to Class Assistant</h1>
+        <p id="fun-fact"></p>
+    </div>
+</div>
+
+<!-- News Ticker -->
+<div id="news-ticker">
+    <div id="news-content"></div>
+</div>
+
+        <!-- Class Schedule Section -->
+        <section id="schedule-section">
+            <h2>Class Schedule</h2>
+            <button id="add-schedule-row">Add Row</button>
+            <table id="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Course</th>
+                        <th>Time</th>
+                        <th>Venue</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </section>
 
         <!-- Notes Section -->
         <section id="notes-section">
-            <h2>Your Notes</h2>
-            <div id="notes-list" class="notes-list">
-                <!-- Notes will be dynamically added here -->
-            </div>
-            <div class="note-input">
-                <textarea id="new-note-content" placeholder="Write a new note..."></textarea>
-                <input type="file" id="upload-image" accept="image/*" />
-            </div>
-            <div class="note-buttons">
-                <button id="add-note">Add Note</button>
-                <button id="clear-notes">Clear All Notes</button>
-            </div>
+            <h2>Notes</h2>
+            <button id="add-note">Add Note</button>
+            <ul id="notes-list"></ul>
         </section>
 
-        <!-- Timer and Stopwatch Section -->
-        <section id="timer-section">
-            <h2>Timer and Stopwatch</h2>
-            <div class="timer-wrapper">
-                <h3>Automatic Timer</h3>
-                <div class="timer-display">
-                    <span id="timer-minutes">00</span>:<span id="timer-seconds">00</span>
-                </div>
-            </div>
-            <div class="stopwatch-wrapper">
-                <h3>Manual Stopwatch</h3>
-                <div class="stopwatch-display">
-                    <span id="stopwatch-minutes">00</span>:<span id="stopwatch-seconds">00</span>
-                </div>
-                <div class="stopwatch-buttons">
-                    <button id="start-stopwatch">Start</button>
-                    <button id="stop-stopwatch">Stop</button>
-                    <button id="reset-stopwatch">Reset</button>
-                </div>
-            </div>
-        </section>
+        <!-- Media Upload Section -->
+        <section id="media-section">
+          
+    <h2>Media Upload</h2>
+    <input type="file" id="media-upload" accept="image/*,video/*">
+    <div id="media-preview"></div>
+    <button id="clear-media">Clear</button>
+    <button id="save-media-btn">Save Media</button>
+    <ul id="saved-media-list"></ul>
+</section>
 
-        <!-- Calendar Section -->
-        <section id="calendar-section">
-            <h2>Your Calendar</h2>
-            <div id="calendar"></div>
         </section>
+      <section id="documents-section">
+    <h2>Documents</h2>
+    <button id="save-doc-btn">Save Document</button>
+    <button id="view-doc-btn">View Documents</button>
+
+    <!-- Modal Box -->
+    <div id="document-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-title"></h3>
+            <textarea id="document-textarea" placeholder="Write or paste your document here..."></textarea>
+            <button id="save-document-action">Save</button>
+            <ul id="document-list"></ul>
+        </div>
+    </div>
+</section>
+
     </main>
 
-    <footer>
-        <p>&copy; 2024 OAU Students Calendar. All rights reserved.</p>
-    </footer>
 
-    <script src="js/main.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>
 <!-- partial -->
