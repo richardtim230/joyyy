@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>University of Lagos ExamGuard - Coming Soon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2282/2282759.png">
+  <style>
+    html { scroll-behavior: smooth; }
+    .highlight {
+      background: linear-gradient(90deg, #38bdf8 40%, #2563eb 100%);
+      background-size: 200% 100%;
+      background-position: 0 100%;
+      color: #fff;
+      padding: 0 0.4em;
+      border-radius: 0.5em;
+      animation: highlight 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes highlight {
+      0% { background-position: 0 100%; }
+      100% { background-position: 100% 100%; }
+    }
+    .glass {
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+      backdrop-filter: blur(7px);
+      border-radius: 1.25em;
+      border: 1.5px solid rgba(56,189,248,0.18);
+    }
+    .floating-svg {
+      animation: float 2.3s ease-in-out infinite alternate;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-22px); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-blue-100 via-cyan-100 to-blue-50 min-h-screen flex flex-col">
+
+  <!-- Hero Section -->
+  <section class="relative flex-1 flex flex-col justify-center items-center px-4 py-12 md:py-24 overflow-hidden">
+    <!-- Floating SVGs -->
+    <svg class="absolute left-10 top-10 w-16 h-16 floating-svg opacity-80" fill="none" viewBox="0 0 64 64">
+      <rect x="8" y="20" width="48" height="24" rx="6" fill="#2563eb" />
+      <rect x="20" y="28" width="24" height="8" rx="3" fill="#38bdf8"/>
+    </svg>
+    <svg class="absolute right-12 top-32 w-20 h-20 floating-svg opacity-90" fill="none" viewBox="0 0 80 80">
+      <ellipse cx="40" cy="40" rx="32" ry="18" fill="#38bdf8"/>
+      <rect x="20" y="34" width="40" height="12" rx="6" fill="#2563eb" />
+    </svg>
+    <svg class="absolute left-16 bottom-10 w-12 h-12 floating-svg opacity-60" fill="none" viewBox="0 0 48 48">
+      <rect x="8" y="16" width="32" height="16" rx="4" fill="#e0f2fe"/>
+      <circle cx="24" cy="24" r="8" fill="#2563eb" />
+    </svg>
+    <!-- Glass Card Content -->
+    <div class="glass max-w-xl w-full mx-auto px-6 py-10 flex flex-col items-center text-center relative z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/2282/2282759.png" class="h-14 mb-3" alt="UI ExamGuard Logo">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4 leading-tight">
+        <span class="highlight">University of Lagos</span><br>
+        ExamGuard is Coming!
+      </h1>
+      <p class="text-blue-800 text-lg mb-8">Prepare, practice, and connect for exam success at Unilag. <br class="hidden sm:inline" /> The next generation campus exam companion launches soon!</p>
+      <a href="#notify" class="px-8 py-4 bg-gradient-to-r from-blue-700 to-cyan-500 text-white font-bold rounded-xl shadow-md hover:bg-blue-800 transition text-lg mb-2">
+        Get Early Access
+      </a>
+      <span class="text-blue-800/70 text-sm mt-2">Beta coming for Unilag students. Don’t miss out!</span>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="max-w-5xl mx-auto px-4 py-12">
+    <h2 class="text-center text-3xl font-bold text-blue-900 mb-10">Why You'll Love ExamGuard</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-xl shadow hover:shadow-xl p-7 flex flex-col items-center text-center border-t-4 border-blue-400">
+        <svg class="mb-4" width="48" height="48" fill="none" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#38bdf8"/><path d="M24 18v12M24 30v2M18 24h12" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3 class="font-bold text-lg mb-2 text-blue-800">Past Questions</h3>
+        <p class="text-blue-900/80">Practice Unilag exam archives, get instant feedback, and boost your grades.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow hover:shadow-xl p-7 flex flex-col items-center text-center border-t-4 border-cyan-400">
+        <svg class="mb-4" width="48" height="48" fill="none" viewBox="0 0 48 48"><rect x="12" y="18" width="24" height="12" rx="6" fill="#38bdf8"/><rect x="18" y="24" width="12" height="6" rx="3" fill="#2563eb"/></svg>
+        <h3 class="font-bold text-lg mb-2 text-blue-800">Campus Community</h3>
+        <p class="text-blue-900/80">Share hacks, ask questions, and succeed together with UI students.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow hover:shadow-xl p-7 flex flex-col items-center text-center border-t-4 border-blue-600">
+        <svg class="mb-4" width="48" height="48" fill="none" viewBox="0 0 48 48"><path d="M24 12l8 16H16l8-16z" fill="#38bdf8"/><circle cx="24" cy="36" r="4" fill="#2563eb"/></svg>
+        <h3 class="font-bold text-lg mb-2 text-blue-800">Smart Study Tools</h3>
+        <p class="text-blue-900/80">Reminders, analytics, notes, and more to help you stay ahead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notify Section -->
+  <section id="notify" class="bg-gradient-to-tr from-blue-100 via-cyan-50 to-blue-50 py-10 px-4 mt-auto">
+    <div class="max-w-xl mx-auto text-center glass py-8 px-6">
+      <h2 class="text-2xl font-bold text-blue-900 mb-3">Stay Updated!</h2>
+      <p class="text-blue-800 mb-6">Drop your email and be the first to know when UI ExamGuard launches.</p>
+      <form class="flex flex-col sm:flex-row gap-3 items-center justify-center">
+        <input type="email" placeholder="your@email.com" class="px-5 py-3 w-full sm:w-auto rounded-lg border border-blue-200 focus:border-blue-500 focus:outline-none text-blue-900" required />
+        <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-700 to-cyan-500 text-white font-bold rounded-lg shadow hover:bg-blue-800 transition">Notify Me</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900/90 border-t border-blue-100 py-6 mt-10 text-center text-white text-sm">
+    <span class="font-bold text-cyan-300">University of Lagos ExamGuard</span> &mdash; launching soon. <br>
+    &copy; 2025 All rights reserved.
+  </footer>
+</body>
+</html>
